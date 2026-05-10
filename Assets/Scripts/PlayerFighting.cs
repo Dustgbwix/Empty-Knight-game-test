@@ -17,13 +17,12 @@ public class PlayerFighting : MonoBehaviour
             Time.timeScale = 0f;
         }
     }
-    private void onTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
         {
             EnemyFight enemy = other.GetComponent<EnemyFight>();
             enemy.EnemyTakeDamage(AttackDamage);
-            Debug.Log("you hit the enemy!");
         }
     }
 }
