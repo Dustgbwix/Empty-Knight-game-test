@@ -20,6 +20,7 @@ public class EnemyFight : MonoBehaviour
     {
         if (EnemyHealth <= 0)
         {
+            CancelInvoke();
             Destroy(gameObject);
             Debug.Log("Enemy has been defeated!");
         }
