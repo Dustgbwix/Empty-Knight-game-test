@@ -5,31 +5,30 @@ public class BossRoll : MonoBehaviour
     [SerializeField] private float rollSpeed = 15f;
     [SerializeField] private float bossHealth = 100f;
     [SerializeField] private float damage = 25f;
-    [SerializeField] private float knockbackDirection = 1;
-    private float distance = 1;
+    [SerializeField] private Vector2 knockbackDirection;
     [SerializeField] private float knockbackStrength = 10f;
     private Rigidbody2D rb;
     [SerializeField] private GameObject Wall;
     [SerializeField] private PlayerMovement player;
-    public void takeDamage(float damageAmount)
+    public void BosstakeDamage(float damageAmount)
     {
         bossHealth -= damageAmount;
     }
     void Start()
     {
+        InvokeRepeating("roll", 2f, 1f);
         rb = GetComponent<Rigidbody2D>();
     }
     void Update()
     {
-        InvokeRepeating("roll", 2f, 5f);
         if (bossHealth <= 0)
         {
             Destroy (gameObject);
-            Wall.SetActive(true);
+            Wall.SetActive(false);
             Time.timeScale = 0f; 
-            Debug.Log("Boss defeated!");
+            Debug.Log("Boss defeated! you win!");
         }
-        float knockbackDirection = Mathf.Sign(player.transform.position.x - transform.position.x);
+        knockbackDirection = new Vector2(Mathf.Sign(player.transform.position.x - transform.position.x), 0);
     }
     private void OnCollisionEnter2D(Collision2D others)
     {
