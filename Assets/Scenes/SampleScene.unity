@@ -14253,11 +14253,11 @@ GameObject:
   - component: {fileID: 1281552096}
   m_Layer: 0
   m_Name: 'fake knight '
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1281552092
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14417,9 +14417,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f2903affcdf974f84546dcd8cc7420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossRoll
-  rollSpeed: 15
+  rollSpeed: 50
   bossHealth: 100
-  damage: 25
+  damage: 50
+  knockbackDirection: {x: 1, y: 1}
+  knockbackStrength: 10
   Wall: {fileID: 42467378}
   player: {fileID: 2064374656}
 --- !u!1 &1292660130
