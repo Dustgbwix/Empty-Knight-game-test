@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerFighting : MonoBehaviour
 {
-    private Transform Player;
     [SerializeField] private float PlayerHealth = 100f;
     [SerializeField] private float AttackDamage = 10f;
     public void takeDamage(float damage)
@@ -23,6 +22,11 @@ public class PlayerFighting : MonoBehaviour
         {
             EnemyFight enemy = other.GetComponent<EnemyFight>();
             enemy.EnemyTakeDamage(AttackDamage);
+        }
+        if (other.CompareTag("Boss"))
+        {
+            BossRoll boss = other.GetComponent<BossRoll>();
+            boss.BosstakeDamage(AttackDamage);
         }
     }
 }
