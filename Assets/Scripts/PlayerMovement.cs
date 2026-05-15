@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Debug.Log("the player controlls is a and d for left and right and space to jump and r and q to dash to reset the game.");
+        Debug.Log("the player controlls is a and d for left and right and space to jump and r and left click to damage and q to dash to reset the game.");
     }
     void FixedUpdate()
     {
